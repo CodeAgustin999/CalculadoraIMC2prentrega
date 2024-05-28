@@ -1,0 +1,142 @@
+
+
+:root{
+  --color-fondo:#d0ab7a;
+  --color-encabezado:#7a1843;
+  
+}
+*{
+  text-align: center;
+  align-items: center;
+  padding: 0;
+}
+body{
+  background-color: #d0ab7a;
+  color: white;
+}
+
+/*------TEXTO/ENCABEZADOS--------*/
+h1{
+  text-transform: uppercase;
+  color: var(--color-encabezado);
+}
+h2{
+  text-transform: uppercase;
+  color: blue;
+}
+h4{
+  text-transform: uppercase;
+}
+.respuesta{
+  text-transform: uppercase;
+  color:red;
+  position: fixed;
+  padding: 0;
+  right: 550px;
+  top: 359px;
+}
+/*-----botones-------- */
+.botones{
+  margin-top: 20px;
+  margin-left: 100px;
+  padding:0 50px 0 50px;
+  position: relative;
+  right: 5px;
+}
+.btn-calcular{
+  margin-right:150px ;
+  padding: 5px 32px;
+  border: 3px solid var(--color-encabezado);
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.btn-limpiar{
+  margin-right:50px ;
+  padding: 5px 32px;
+  border: 3px solid var(--color-encabezado);
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+.btn-calcular:hover{
+  background-color: var(--color-encabezado);
+  color: #fff;
+}
+.btn-limpiar:hover{
+  background-color: var(--color-encabezado);
+  color: #fff;
+}
+
+label.text-peso{
+  color: red;
+  position:relative;
+  bottom: 20px;
+  left: 460px;
+  text-transform: uppercase;
+}
+label.text-altura{
+  color: blue;
+  position: relative;
+  bottom: 20px;
+  left: 145px;
+  text-transform: uppercase;
+}
+/*-------TABLA----------*/
+.tabla{
+  align-items: center;
+  position: relative;
+  top: 50px;
+  margin-left: 800px;
+  padding: 0px;
+
+}
+table{
+  text-align: left;
+  border-collapse: collapse;
+  padding: 0 00px  0;
+  margin-left: 0;
+  margin-top: 0px;
+  position: relative;
+  top: -20px;
+}
+tr, td{
+  background-color: #fff;
+  color: black;
+  border: solid 3px black;
+  padding: 20px 50px 20px 50px;
+  padding-left: 15px;
+  text-align: justify;
+
+}
+caption{
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: bold;
+  padding: 0 ;
+  margin-top: 0px;
+}
+
+th{
+background-color: #7a1843;
+color: white;
+padding: 20px;
+text-align: center;
+
+}
+.nombre{
+  margin-right: 50px;
+  padding-left: 0;
+  position: relative;
+  right: 55px;
+  border: 3px solid var(--color-encabezado);
+}
+.altura{
+  margin-right: 100px;
+  padding-left: 0;
+  position: relative;
+  right: 55px;
+  border: 3px solid var(--color-encabezado);
+}
+.peso{
+  border:3px solid var(--color-encabezado);
+  margin-left: 50px;
+}
