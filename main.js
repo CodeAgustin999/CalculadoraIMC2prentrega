@@ -5,6 +5,8 @@ let nombre= document.getElementById('nombre')
 const respuesta = document.getElementById("respuesta")
 let resultado = ""
 let limpiar = document.getElementById("limpiar")
+let documento= ""
+const URL= `https://calculadora-imc-be814-default-rtdb.firebaseio.com/`
 
 
 
@@ -26,9 +28,6 @@ Almacenar = ()=>{
         DatosStorage.push(DatosGuardados);
 localStorage.setItem('Datos Storage', JSON.stringify(DatosStorage));
 }
-
-
-
 
 if( resultado <16.5){
         respuesta.textContent= `Tu resultado es ${resultado2} TIENES BAJO PESO SEVERO`  
@@ -55,9 +54,61 @@ if( resultado <16.5){
                     alert("Error")
                 }
     Almacenar();
-//SE GUARDA LOS DATOS DE LA VARIABLE RESULTADO EN EL LOCALSTORAGE CON LA CLAVE DE EL NOMBRE 
+//--------------------------------------------------------------------------------------------
+const registro = Swal.mixin({
+    customClass: {
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger"
+},
+    buttonsStyling: false
+});
+  registro.fire({
+    title: "Quieres registrar tus datos?",
+    text: "registrando tus datos puedes ver tu resultado cuando quieras y desde donde quieras",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonText: "Si, Registrarme", 
+    cancelButtonText: "No, no registrarme",
+    reverseButtons: true,
     
+  }).then ( async(result) => {
+    if (result.isConfirmed) {
+        
+        const { value: DNI } = await Swal.fire({
+            title: "ingresa tu DNI",
+            input: "number",
+            inputLabel: "ingresa tu dni para regristrarte",
+            inputPlaceholder: "xx.xxx.xxx"
+          });
+          
+          if (DNI) {
+            documento= DNI
+            swal.fire({
+                title: "Registrado!",
+                text: "Sus datos han sido registrados en nuestra nube.",
+                icon: "success"
+              });
+          }
+         
+          console.log(documento)
+    } else if (result.dismiss === Swal.DismissReason.cancel){;}
+    let registrado={
+        nombre:nombre.value,
+        documento,
+        peso: peso.value,
+        altura: altura.value,
+        imc: respuesta.innerText
+    }
+const response = await fetch(URL + "usuario.json", {
+    method:"POST",
+    body: JSON.stringify(registrado)
 })
+
+    
+  });
+});
+ 
+
 
 
 //BOTON DE LIMPIAR (BORRA LOS VALORES INGRESADOS EN EL INPUT Y EL CONTENIDO DEL DIV RESPUESTA)
@@ -67,5 +118,9 @@ limpiar.addEventListener('click', function(){
 /*====================================================================================================================================
 =                                                                                                                    =
 ======================================================================================================================================*/
+/* lo primero que quiero modificar es que con un rectangulo de pregunta utilizando los del sweet alert me pregunte al final de todo si quiero guardar los datos en la nube
+en caso de que diga que si, lo que haría seria pedirle que ponga su dni .y guardarlo en la base de datos del firebase, todo eso con un await y un async.
+luego en la página de mostrar datos, al apretar el boton de mostrar datos saldria un alert del sweet alert preguntando si estaba registrado o no,
+si le pone en que no los datos a mostrar seran del local storage, si pone que si, debera poner su dni y arrojar los datos guardados en el firebase con ese dni */ 
 
 

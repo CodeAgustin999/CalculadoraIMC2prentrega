@@ -14,7 +14,11 @@ body{
   background-color: #d0ab7a;
   color: white;
 }
-
+.verdatos{
+  text-transform: uppercase;
+  position: absolute;
+  margin-left: 700px;
+}
 /*------TEXTO/ENCABEZADOS--------*/
 h1{
   text-transform: uppercase;
