@@ -118,9 +118,5 @@ limpiar.addEventListener('click', function(){
 /*====================================================================================================================================
 =                                                                                                                    =
 ======================================================================================================================================*/
-/* lo primero que quiero modificar es que con un rectangulo de pregunta utilizando los del sweet alert me pregunte al final de todo si quiero guardar los datos en la nube
-en caso de que diga que si, lo que haría seria pedirle que ponga su dni .y guardarlo en la base de datos del firebase, todo eso con un await y un async.
-luego en la página de mostrar datos, al apretar el boton de mostrar datos saldria un alert del sweet alert preguntando si estaba registrado o no,
-si le pone en que no los datos a mostrar seran del local storage, si pone que si, debera poner su dni y arrojar los datos guardados en el firebase con ese dni */ 
 
 
